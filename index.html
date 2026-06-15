@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProQuiz | Professional Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="card hero-main">
+        <span class="badge">⚡ Professional Quiz Web App with Result Storage</span>
+        <h1 class="title">ProQuiz — premium UI, smart scoring, and saved results.</h1>
+        <p class="subtitle">
+          This is a complete single-file quiz application built with HTML, CSS, and JavaScript.
+          It includes category filtering, progress indicator, timer, answer review, result history,
+          and browser storage using localStorage.
+        </p>
+        <div class="stats">
+          <div class="stat"><strong id="totalQuestions">0</strong><span>Total Questions</span></div>
+          <div class="stat"><strong id="bestScore">0%</strong><span>Best Score Saved</span></div>
+          <div class="stat"><strong id="attempts">0</strong><span>Saved Attempts</span></div>
+        </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div>
+          <h3>Quiz Settings</h3>
+          <p>Enter your name, choose a category, and start the test. Results are stored in the browser.</p>
+        </div>
+        <div class="mini-grid">
+          <div class="mini"><span class="label">Storage</span><div class="value">localStorage</div></div>
+          <div class="mini"><span class="label">Mode</span><div class="value">MCQ</div></div>
+          <div class="mini"><span class="label">Review</span><div class="value">Included</div></div>
+          <div class="mini"><span class="label">Layout</span><div class="value">Responsive</div></div>
+        </div>
+        <p class="footer-note">This version is structured, modern, and ready to customize for student or exam systems.</p>
+      </aside>
+    </section>
+
+    <div class="toolbar">
+      <input id="nameInput" class="input" type="text" placeholder="Enter your name" maxlength="40" />
+      <select id="categorySelect" class="select">
+        <option value="All">All Categories</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript">JavaScript</option>
+      </select>
+      <button id="startBtn" class="btn">Start Quiz</button>
+      <button id="clearHistoryBtn" class="btn secondary">Clear Saved Results</button>
+    </div>
+
+    <div class="layout">
+      <main class="card quiz-card">
+        <div class="quiz-top">
+          <div>
+            <div class="question-meta" id="quizMeta">Ready to start</div>
+            <h2 class="question-text" id="questionText">Please enter your name and click Start Quiz.</h2>
+          </div>
+          <div class="timer" id="timerBadge">⏱ 00:00</div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div id="optionsContainer" class="options"></div>
+
+        <div class="actions">
+          <button id="prevBtn" class="btn secondary" disabled>Previous</button>
+          <button id="nextBtn" class="btn" disabled>Next</button>
+          <button id="submitBtn" class="btn hidden">Submit Quiz</button>
+        </div>
+
+        <section id="resultCard" class="result-card">
+          <h3 class="section-title">Your Result</h3>
+          <div class="result-grid">
+            <div class="result-box"><span class="label">Candidate</span><div class="value" id="resultName">-</div></div>
+            <div class="result-box"><span class="label">Score</span><div class="value" id="resultScore">0/0</div></div>
+            <div class="result-box"><span class="label">Percentage</span><div class="value" id="resultPercent">0%</div></div>
+          </div>
+          <div id="resultTag" class="tag success">Result saved successfully</div>
+          <div id="reviewContainer" class="review"></div>
+        </section>
+      </main>
+
+      <aside class="card side-card">
+        <h3 class="section-title">Saved Results</h3>
+        <div id="historyList" class="history-list"></div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
